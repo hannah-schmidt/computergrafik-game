@@ -1,0 +1,104 @@
+{
+    "name": "UserInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "9ba0f3fe-f0f8-459d-bf7a-92444b679e3c",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "29113372-3951-4fd0-9290-f6f9ff902b57",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5a2861ac-1ad9-4076-8f3c-230da277f4d8",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "Hold(duration=0.1,pressPoint=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dbc35411-3356-4798-8805-eb0654f6ee56",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "Hold(duration=0.1,pressPoint=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42b0ebfe-8178-492f-acd6-337f002d2be2",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "Hold(duration=0.1,pressPoint=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "decba2d8-3a9c-4882-9493-7c842f477a16",
+            "actions": [
+                {
+                    "name": "start",
+                    "type": "Button",
+                    "id": "e9ff1b68-f736-4996-af9c-411228814f60",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "pause",
+                    "type": "Button",
+                    "id": "0a23fe57-c91a-450c-8abd-f182932e6059",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "36655ff0-92f2-41b5-9470-7257654c212c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "164bdad8-9e99-4d97-b7a2-0df572b83c5c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
