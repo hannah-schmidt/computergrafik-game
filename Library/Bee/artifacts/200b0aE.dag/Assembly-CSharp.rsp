@@ -359,6 +359,7 @@
 "Assets/rotatelight.cs"
 "Assets/score.cs"
 "Assets/trackPlayer.cs"
+"Assets/trackVolume.cs"
 "Assets/UserInput.cs"
 -langversion:9.0
 
