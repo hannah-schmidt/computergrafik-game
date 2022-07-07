@@ -5,7 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
-    public void PlayGame(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+    public void PlayLevel(){
+        if(score.score_count < 1){
+            SceneManager.LoadScene(1, LoadSceneMode.Single); 
+        }else{
+            SceneManager.LoadScene(3, LoadSceneMode.Single);
+        }
+        
     }
+
+    public void startMenu(){
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
+
+    public void lostScreen(){
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
+    }
+
+
+
 }
