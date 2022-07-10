@@ -7,7 +7,7 @@ public class followPlayer : MonoBehaviour
 {
     public Transform player;
     public Vector3 offset;
-    //public float smoothSpeed = 0.125f;
+
 
     private void Start(){
         offset = player.transform.position - transform.position;
@@ -16,7 +16,7 @@ public class followPlayer : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    { 
         float angle = player.transform.eulerAngles.y;
         Quaternion rotation = Quaternion.Euler(0, angle, 0);
         transform.position = player.transform.position - (rotation * offset);

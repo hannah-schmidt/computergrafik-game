@@ -37,9 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/rotatelight.cs" />
-     <Compile Include="Assets/playerMovemeNT.cs" />
      <Compile Include="Assets/menu.cs" />
-     <Compile Include="Assets/Player.cs" />
      <Compile Include="Assets/followPlayer.cs" />
      <Compile Include="Assets/movement.cs" />
      <Compile Include="Assets/trackPlayer.cs" />

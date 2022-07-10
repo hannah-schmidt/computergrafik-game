@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class trackVolume : MonoBehaviour
 {
      public Slider volumeSlider;
-      public float volval;
+      public static float volval;
 
     public void Start(){
         AudioSource audio = GetComponent<AudioSource>();
+        Debug.Log(volumeSlider.value);
         volval = volumeSlider.value;
         volumeSlider.onValueChanged.AddListener(delegate {VolumeChange(); });
     }
 
     public void VolumeChange(){
        volval = volumeSlider.value;
-       Debug.Log("vol" + volval);
     }
 }

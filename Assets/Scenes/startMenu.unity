@@ -1144,19 +1144,7 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1049720092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1293,7 @@ GameObject:
   - component: {fileID: 1092538780}
   - component: {fileID: 1092538779}
   - component: {fileID: 1092538783}
+  - component: {fileID: 1092538784}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1408,6 +1397,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1049720094}
+--- !u!114 &1092538784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092538778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c81e83fa7a54fc0b04cd557add04c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 987172629}
 --- !u!1 &1302079270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,7 +1622,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1470052835}
   - component: {fileID: 1470052836}
-  - component: {fileID: 1470052837}
   m_Layer: 0
   m_Name: Options
   m_TagString: Untagged
@@ -1659,20 +1660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57ef544e77d94552baa042aaa2bb96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1470052837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470052834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c81e83fa7a54fc0b04cd557add04c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 987172629}
-  volval: 0
 --- !u!1 &1479932070
 GameObject:
   m_ObjectHideFlags: 0

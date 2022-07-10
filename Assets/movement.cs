@@ -9,90 +9,89 @@ public class movement : MonoBehaviour
     private UserInput controls;
     public Rigidbody rb;
     public Transform tf;
-    public int speed = 10;
-    public Vector3 direction;
-    private bool duration =false;
+    private bool pressed;
     private string name;
-    private bool hasPlayed =false;
-    private float drift=1f;
-    private trackVolume vol;
+    private bool hasPlayed;
+    private float drift;
+    private bool jump;
    
 
     private void Awake(){
         controls = new UserInput();
         controls.Player.Enable();
         controls.Player.Move.started += ctx => { 
-            duration = true;
+            pressed = true;
             name = ctx.control.name;
-            };
+        };
         controls.Player.Move.canceled += ctx => {
-            duration = false;
+            pressed = false;
             name = ctx.control.name;
         };
         controls.Player.Drift.started += ctx => { 
             drift = 2f;
-            Debug.Log("drift");
-            };
+        };
         controls.Player.Drift.canceled += ctx => {
             drift = 1f;
-            Debug.Log("no drift");
         };
-    }
-//
-     // Start is called before the first frame update
-    void Start(){
-        direction = new Vector3(0, 0, speed);
+
         AudioSource audio = GetComponent<AudioSource>();
-        audio.volume = vol.volval;
+        audio.volume = trackVolume.volval;
+        drift = 1f;
+        pressed = false;
+        hasPlayed = false;
+        jump = true;
     }
 
-
-    void changeAxis(string code){
-        Debug.Log(code);
+    // rotate/move according to keyboard key code
+    void rotatePlayer(string code){
         if(code == "leftArrow"){
-            tf.Rotate(0f, -30f * Time.deltaTime * drift, 0f, Space.Self);
+            tf.Rotate(0f, -1f * drift, 0f, Space.Self);
         }else if(code == "rightArrow"){
-            tf.Rotate(0f, 30f * Time.deltaTime * drift, 0f, Space.Self);
+            tf.Rotate(0f, 1f * drift, 0f, Space.Self);
         }else if(code == "upArrow"){
-            rb.AddForce(Vector3.up * 100f * Time.deltaTime, ForceMode.Impulse);
-        }
-        
+            if(jump)
+                rb.AddForce(Vector3.up * 4.5f , ForceMode.Impulse);
+        } 
     }
+    // play Audio
     void playAudio(){
-        Debug.Log("Play");
-        audio.Play();
+        GetComponent<AudioSource>().Play();
     }
 
+    // called every frame
     public void FixedUpdate(){
-        Debug.Log(rb.position.y);
-        tf.Translate(Vector3.forward * 20 * Time.deltaTime, Space.Self); 
-        if(duration == true){
-            changeAxis(name);
-        }
-        if(rb.position.y < 5 && rb.position.y > -20){
-            rb.AddForce(new Vector3(0, -30f, 0), ForceMode.Impulse);
-            if(!hasPlayed){ 
-               playAudio(); 
-               hasPlayed = true;
+        tf.Translate(Vector3.forward * 0.5f, Space.Self); 
+        //change axis for pressed of key pressed
+        if(pressed)
+            rotatePlayer(name);
+        if(rb.position.y > 7){
+            if(rb.position.y > 30){
+                jump = false;
             }
-            
+            if(!jump)
+                rb.AddForce(new Vector3(0, -20f , 0f),ForceMode.Impulse);
         }
-        if(rb.position.y > 15){
-            rb.AddForce(new Vector3(0, -20f * Time.deltaTime, 0),ForceMode.Impulse);
-            //DISABLE UPARROW TILL ON THEGROUND AGAIN
+        if(rb.position.y == 6){
+            jump = true;
+        }else if(rb.position.y < 4 && rb.position.y > -20){ 
+            if(!hasPlayed){ 
+                rb.AddForce(new Vector3(0, -40f, 0), ForceMode.Impulse);
+                playAudio();
+                hasPlayed = true;
+            }
+        }else if(rb.position.y < -500){
+            Debug.Log("you lost");
+            if(trackPlayer.point_count > 0 && score.score_count > 0){
+                score.score_count -= 1;
+            } 
+            SceneManager.LoadScene(2, LoadSceneMode.Single);    
         }
         if(trackPlayer.point_count < 1){
             Debug.Log("win"); 
             score.score_count += 1;
             SceneManager.LoadScene(0, LoadSceneMode.Single); 
         }
-        if(rb.position.y < -1150){
-            Debug.Log("lose");
-            if(trackPlayer.point_count > 0 && score.score_count > 0){
-                score.score_count -= 1;
-            } 
-            SceneManager.LoadScene(2, LoadSceneMode.Single);
-        }
+        
     }
  
 }

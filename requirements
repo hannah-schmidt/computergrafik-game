@@ -1,6 +1,7 @@
 TODO:
 - welche Form/Aussehen? -> choose your fighter?
-- level?
+- fix jump
+- fix fall lag
 
 Player:
 
@@ -18,7 +19,7 @@ Plane:
 
 Scenes:
 
-- start scene -> regeln, play button, score?, titel, level???, choose your player????
+- start scene -> regeln, play button, score, titel, level, 
 - play -> pause(?), verkackt -> start scene
 
 

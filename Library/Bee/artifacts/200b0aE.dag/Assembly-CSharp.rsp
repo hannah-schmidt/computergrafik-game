@@ -354,8 +354,6 @@
 "Assets/followPlayer.cs"
 "Assets/menu.cs"
 "Assets/movement.cs"
-"Assets/Player.cs"
-"Assets/playerMovemeNT.cs"
 "Assets/rotatelight.cs"
 "Assets/score.cs"
 "Assets/trackPlayer.cs"

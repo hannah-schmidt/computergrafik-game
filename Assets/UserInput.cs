@@ -51,7 +51,7 @@ public partial class @UserInput : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""5a2861ac-1ad9-4076-8f3c-230da277f4d8"",
                     ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": ""Hold(duration=0.1,pressPoint=0.1)"",
+                    ""interactions"": ""Hold(duration=0.01,pressPoint=0.01)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",

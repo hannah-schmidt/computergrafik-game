@@ -104,6 +104,7 @@
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
 -define:ENABLE_INPUT_SYSTEM
+-define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"/Applications/Unity/Hub/Editor/2021.3.4f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll"
@@ -307,10 +308,12 @@
 -r:"Library/Bee/artifacts/200b0aP.dag/Unity.VisualScripting.State.ref.dll"
 -r:"Library/Bee/artifacts/200b0aP.dag/UnityEngine.UI.ref.dll"
 "Assets/followPlayer.cs"
-"Assets/Materials/Player.cs"
-"Assets/Materials/trackPlayer.cs"
+"Assets/menu.cs"
 "Assets/movement.cs"
-"Assets/playerMovemeNT.cs"
+"Assets/rotatelight.cs"
+"Assets/score.cs"
+"Assets/trackPlayer.cs"
+"Assets/trackVolume.cs"
 "Assets/UserInput.cs"
 -langversion:9.0
 
