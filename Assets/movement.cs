@@ -9,11 +9,13 @@ public class movement : MonoBehaviour
     private UserInput controls;
     public Rigidbody rb;
     public Transform tf;
+    private AudioSource audio;
     private bool pressed;
     private string name;
     private bool hasPlayed;
     private float drift;
     private bool jump;
+    private bool lost;
    
 
     private void Awake(){
@@ -26,6 +28,7 @@ public class movement : MonoBehaviour
         controls.Player.Move.canceled += ctx => {
             pressed = false;
             name = ctx.control.name;
+            jump = false;
         };
         controls.Player.Drift.started += ctx => { 
             drift = 2f;
@@ -33,13 +36,14 @@ public class movement : MonoBehaviour
         controls.Player.Drift.canceled += ctx => {
             drift = 1f;
         };
-
-        AudioSource audio = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
         audio.volume = trackVolume.volval;
         drift = 1f;
-        pressed = false;
+        pressed = false; 
         hasPlayed = false;
         jump = true;
+        lost = false;
+        Debug.Log("awake");
     }
 
     // rotate/move according to keyboard key code
@@ -50,12 +54,14 @@ public class movement : MonoBehaviour
             tf.Rotate(0f, 1f * drift, 0f, Space.Self);
         }else if(code == "upArrow"){
             if(jump)
-                rb.AddForce(Vector3.up * 4.5f , ForceMode.Impulse);
+                Debug.Log("jump");
+                rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         } 
     }
     // play Audio
     void playAudio(){
-        GetComponent<AudioSource>().Play();
+        //audio = GetComponent<AudioSource>();
+        audio.Play();
     }
 
     // called every frame
@@ -69,18 +75,19 @@ public class movement : MonoBehaviour
                 jump = false;
             }
             if(!jump)
-                rb.AddForce(new Vector3(0, -20f , 0f),ForceMode.Impulse);
+                rb.AddForce(new Vector3(0, -5f , -0.5f),ForceMode.Impulse);
+                Debug.Log("fall");
         }
         if(rb.position.y == 6){
             jump = true;
-        }else if(rb.position.y < 4 && rb.position.y > -20){ 
+        }else if(rb.position.y < 5 && rb.position.y > -20){ 
+            lost = true;
             if(!hasPlayed){ 
-                rb.AddForce(new Vector3(0, -40f, 0), ForceMode.Impulse);
+                rb.AddForce(new Vector3(0, -40f, -0.5f), ForceMode.Impulse);
                 playAudio();
                 hasPlayed = true;
             }
-        }else if(rb.position.y < -500){
-            Debug.Log("you lost");
+        }else if(!audio.isPlaying && lost){
             if(trackPlayer.point_count > 0 && score.score_count > 0){
                 score.score_count -= 1;
             } 
