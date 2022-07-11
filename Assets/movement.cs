@@ -15,7 +15,7 @@ public class movement : MonoBehaviour
     private bool hasPlayed;
     private float drift;
     private bool jump;
-    private bool lost;
+    private int lost;
    
 
     private void Awake(){
@@ -42,7 +42,7 @@ public class movement : MonoBehaviour
         pressed = false; 
         hasPlayed = false;
         jump = true;
-        lost = false;
+        lost = 0;
         Debug.Log("awake");
     }
 
@@ -80,14 +80,14 @@ public class movement : MonoBehaviour
         }
         if(rb.position.y == 6){
             jump = true;
-        }else if(rb.position.y < 5 && rb.position.y > -20){ 
-            lost = true;
+        }else if(rb.position.y < 4.5 && rb.position.y > -20){ 
+            lost += 1;
             if(!hasPlayed){ 
-                rb.AddForce(new Vector3(0, -40f, -0.5f), ForceMode.Impulse);
+                rb.AddForce(new Vector3(0, -60f, -0.5f), ForceMode.Impulse);
                 playAudio();
                 hasPlayed = true;
             }
-        }else if(!audio.isPlaying && lost){
+        }else if(!audio.isPlaying && lost == 1){
             if(trackPlayer.point_count > 0 && score.score_count > 0){
                 score.score_count -= 1;
             } 

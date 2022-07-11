@@ -1,6 +1,4 @@
 TODO:
-- welche Form/Aussehen? -> choose your fighter?
-- fix jump
 - fix fall lag
 
 Player:
@@ -28,8 +26,6 @@ Unity, (29.06.2022), "Input Manager". docs.unity3d.com, https://docs.unity3d.com
 
 Rotate. https://turbofuture.com/computers/How-to-Rotate-Objects-in-Unity
 
-KeyDown Key Codes: https://docs.unity3d.com/ScriptReference/KeyCode.html 
-
 Camera Follow. https://www.youtube.com/watch?v=MFQhpwc6cKE
 
 Input!! https://www.youtube.com/watch?v=Pzd8NhcRzVo
@@ -37,3 +33,9 @@ Input!! https://www.youtube.com/watch?v=Pzd8NhcRzVo
 InputSystem: https://www.youtube.com/watch?v=Yjee_e4fICc
 
 Start scene https://www.youtube.com/watch?v=zc8ac_qUXQY&t=557s 
+
+Unity Documentation https://docs.unity3d.com/ScriptReference/ 
+
+Sound license: https://pixabay.com/service/terms/ 
+
+booo Music from <a href="https://pixabay.com/music/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=14768">Pixabay</a> 
