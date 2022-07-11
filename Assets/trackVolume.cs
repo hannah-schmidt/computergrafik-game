@@ -10,7 +10,6 @@ public class trackVolume : MonoBehaviour
 
     public void Start(){
         AudioSource audio = GetComponent<AudioSource>();
-        Debug.Log(volumeSlider.value);
         volval = volumeSlider.value;
         volumeSlider.onValueChanged.AddListener(delegate {VolumeChange(); });
     }
