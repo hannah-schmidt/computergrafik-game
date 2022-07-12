@@ -1,12 +1,22 @@
 Quellen:
 
-Camera Follow: https://www.youtube.com/watch?v=MFQhpwc6cKE
+Brackeys. (2017). How to make a Video Game in Unity - MOVEMENT(E03). Youtube. https://www.youtube.com/watch?v=Au8oX5pu5u4&list=PLPV2KyIb3jR53Jce9hP7G5xC4O9AgnOuL&index=4 
+-> used for Basic Movement and frictionless ground 
 
-Input System: https://www.youtube.com/watch?v=Pzd8NhcRzVo
+Brackeys. (2017). Smooth Camera Follow in Unity - Tutorial. Youtube. https://www.youtube.com/watch?v=MFQhpwc6cKE
+-> used in followPlayer.cs
 
-Menu: https://www.youtube.com/watch?v=zc8ac_qUXQY&t=557s 
+Brackeys. (2019). NEW INPUT SYSTEM in Unity. Youtube. https://www.youtube.com/watch?v=Pzd8NhcRzVo
 
-Unity Documentation: https://docs.unity3d.com/ScriptReference/ 
+Brackeys. (2018). START MENU in Unity. Youtube. https://www.youtube.com/watch?v=zc8ac_qUXQY&t=557s 
 
-Sounds license: https://pixabay.com/service/terms/ 
+Unity. (2022). Unity Documentation. docs.unity3d.com. https://docs.unity3d.com/ScriptReference/ 
+
+Pixabay. (03.12.2021). pixabay.com. https://pixabay.com/service/terms/ 
+-> sounds license 
+
+SineVFX. (03.08.2020). Translucent Crystals. https://assetstore.unity.com/packages/3d/environments/fantasy/translucent-crystals-106274
+
+
+
 
