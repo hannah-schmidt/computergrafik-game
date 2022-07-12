@@ -15,7 +15,6 @@ public class movement : MonoBehaviour
     private bool hasPlayed;
     private float drift;
     private bool jump;
-    private int lost;
    
 
     private void Awake(){
@@ -38,12 +37,11 @@ public class movement : MonoBehaviour
         };
         audio = GetComponent<AudioSource>();
         audio.volume = trackVolume.volval;
+        Debug.Log(audio.volume);
         drift = 1f;
         pressed = false; 
         hasPlayed = false;
         jump = true;
-        lost = 0;
-        Debug.Log("awake");
     }
 
     // rotate/move according to keyboard key code
@@ -52,49 +50,42 @@ public class movement : MonoBehaviour
             tf.Rotate(0f, -1f * drift, 0f, Space.Self);
         }else if(code == "rightArrow"){
             tf.Rotate(0f, 1f * drift, 0f, Space.Self);
-        }else if(code == "upArrow"){
-            if(jump)
-                Debug.Log("jump");
-                rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+        }else if(code == "upArrow" && jump){
+            rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         } 
     }
     // play Audio
     void playAudio(){
-        //audio = GetComponent<AudioSource>();
         audio.Play();
+        hasPlayed = true;
     }
 
-    // called every frame
     public void FixedUpdate(){
         tf.Translate(Vector3.forward * 0.5f, Space.Self); 
-        //change axis for pressed of key pressed
+        //rotate around itself for duration of pressed <- (key pressed)
         if(pressed)
             rotatePlayer(name);
         if(rb.position.y > 7){
-            if(rb.position.y > 30){
+            // wenn Player zu hoch oder key losgelassen -> jump = false;
+            if(rb.position.y > 30)
                 jump = false;
-            }
             if(!jump)
                 rb.AddForce(new Vector3(0, -5f , -0.5f),ForceMode.Impulse);
-                Debug.Log("fall");
-        }
-        if(rb.position.y == 6){
+        }else if(rb.position.y == 6){
             jump = true;
-        }else if(rb.position.y < 4.5 && rb.position.y > -20){ 
-            lost += 1;
-            if(!hasPlayed){ 
+        }else if(rb.position.y < 4.5){ 
+            if(hasPlayed == false){
                 rb.AddForce(new Vector3(0, -60f, -0.5f), ForceMode.Impulse);
                 playAudio();
-                hasPlayed = true;
             }
-        }else if(!audio.isPlaying && lost == 1){
-            if(trackPlayer.point_count > 0 && score.score_count > 0){
+        }
+        if(hasPlayed){
+            if(trackPlayer.point_count > 0 && score.score_count > 0)
                 score.score_count -= 1;
-            } 
-            SceneManager.LoadScene(2, LoadSceneMode.Single);    
+            if(!audio.isPlaying)
+                SceneManager.LoadScene(2, LoadSceneMode.Single);    
         }
         if(trackPlayer.point_count < 1){
-            Debug.Log("win"); 
             score.score_count += 1;
             SceneManager.LoadScene(0, LoadSceneMode.Single); 
         }
